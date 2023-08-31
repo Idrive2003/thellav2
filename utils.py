@@ -755,7 +755,7 @@ async def get_cap(settings, remaining_seconds, files, query, total_results, sear
     for attr in media_types:
         if media := getattr(message, attr, None):
             return media
-
+        
 def get_name(media_msg: Message) -> str:
     media = get_media_from_message(media_msg)
     return getattr(media, "file_name", "None")
