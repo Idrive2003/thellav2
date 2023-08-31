@@ -367,7 +367,7 @@ async def start(client, message):
     elif data.startswith("files"):
         user = message.from_user.id
         if temp.SHORT.get(user)==None:
-            await message.reply_text(text="<b>Please Search Again in Group</b>")
+          return  await message.reply_text(text="<b>Please Search Again in Group</b>")
         else:
             chat_id = temp.SHORT.get(user)
         settings = await get_settings(chat_id)
@@ -409,6 +409,9 @@ async def start(client, message):
                 protect_content=True if pre == 'filep' else False,
                 reply_markup=InlineKeyboardMarkup(
                     [
+                         [
+                                InlineKeyboardButton('ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ/ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ', callback_data=f'gen_stream_link:{file_id}')
+                            ],
                      [
                       InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
                       InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
@@ -468,7 +471,9 @@ async def start(client, message):
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
         reply_markup=InlineKeyboardMarkup(
-            [
+            [  [
+                                InlineKeyboardButton('ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ/ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ', callback_data=f'gen_stream_link:{file_id}')
+                            ],
              [
               InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
               InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
