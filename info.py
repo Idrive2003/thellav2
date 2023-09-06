@@ -49,7 +49,7 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 #stream feature - @TeamHMT_Bots
 STREAM_BIN = environ.get("STREAM_BIN", "-1001870465424") #Log channel/Bin Channel id -100xxxxxxx
-STREAM_URL = environ.get("STREAM_URL", "https://tmawatchweb-bb6ec826439e.herokuapp.com/") # https://example.com/ (Your Stream Url)
+STREAM_URL = environ.get("STREAM_URL", "https://tmawebwattch-c1a90dbae517.herokuapp.com/") # https://example.com/ (Your Stream Url)
 IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 #Use this feature, if you have deployed file to link bot. paste the app url with stream url and add filter bot as admin in bin channel and add id in stream bin
 
