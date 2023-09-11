@@ -911,7 +911,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ ⚡", url=stream_link),
                                                     InlineKeyboardButton('🎥 ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', url=page_link)]]))
             return await query.message.reply_text(
-                text= f"<b>file_name_no_underscores</b>",
+                text= f"<b>{file_name_no_underscores}</b>",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ ⚡", url=stream_link),
