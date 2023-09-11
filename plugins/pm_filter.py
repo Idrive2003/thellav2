@@ -895,6 +895,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 chat_id=int(STREAM_BIN),
                 file_id=file_id,
             )
+            title = files.file_name
             fileName = {quote_plus(get_name(log_msg))}
             page_link = f"{STREAM_URL}watch/{str(log_msg.id)}?hash={get_hash(log_msg)}"
             stream_link = f"{STREAM_URL}{str(log_msg.id)}?hash={get_hash(log_msg)}"
@@ -910,7 +911,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ ⚡", url=stream_link),
                                                     InlineKeyboardButton('🎥 ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', url=page_link)]]))
             return await query.message.reply_text(
-                text= f"{fileName}",
+                text= f"{title}",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ ⚡", url=stream_link),
