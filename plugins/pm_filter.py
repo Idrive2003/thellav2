@@ -895,7 +895,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 chat_id=int(STREAM_BIN),
                 file_id=file_id,
             )
-            fileName = {quote_plus(get_name(log_msg))}
+            fileName = quote_plus(get_name(log_msg))
             file_name_no_underscores = fileName.replace("_", " ")
             page_link = f"{STREAM_URL}watch/{str(log_msg.id)}?hash={get_hash(log_msg)}"
             stream_link = f"{STREAM_URL}{str(log_msg.id)}?hash={get_hash(log_msg)}"
