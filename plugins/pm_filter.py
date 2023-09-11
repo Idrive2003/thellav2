@@ -895,7 +895,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 chat_id=int(STREAM_BIN),
                 file_id=file_id,
             )
-            fileName = {quote_plus(get_name(log_msg))}
+            fnamee = {(get_name(log_msg)).replace("_", " ")}
+            fileName = {quote_plus(fnamee)}
             page_link = f"{STREAM_URL}watch/{str(log_msg.id)}?hash={get_hash(log_msg)}"
             stream_link = f"{STREAM_URL}{str(log_msg.id)}?hash={get_hash(log_msg)}"
 
@@ -904,13 +905,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await g.delete()
 
             await log_msg.reply_text(
-                text=f"Usᴇʀ ID: {user_id}\n\nUsᴇʀ Nᴀᴍᴇ: {username} 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞: {fileName}",
+                text=f"Usᴇʀ ID: {user_id}\n\nUsᴇʀ Nᴀᴍᴇ: {username} 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞: {fnamee}",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ ⚡", url=stream_link),
                                                     InlineKeyboardButton('🎥 ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ', url=page_link)]]))
             return await query.message.reply_text(
-                text= f"<b>{(get_name(log_msg))} </b>",
+                text= f"<b>{fnamee} </b>",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ ⚡", url=stream_link),
