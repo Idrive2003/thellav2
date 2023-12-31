@@ -1,4 +1,6 @@
 # https://github.com/odysseusmax/animated-lamp/blob/master/bot/database/database.py
+import time
+import datetime
 import motor.motor_asyncio
 from info import DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, AUTO_DELETE, MAX_BTN, AUTO_FFILTER, SHORTLINK_API, SHORTLINK_URL, IS_SHORTLINK, TUTORIAL, IS_TUTORIAL
 
@@ -9,6 +11,7 @@ class Database:
         self.db = self._client[database_name]
         self.col = self.db.users
         self.grp = self.db.groups
+        self.users = self.db.uersz
 
 
     def new_user(self, id, name):
@@ -21,7 +24,6 @@ class Database:
             ),
         )
 
-
     def new_group(self, id, title):
         return dict(
             id = id,
@@ -31,7 +33,7 @@ class Database:
                 reason="",
             ),
         )
-    
+            
     async def add_user(self, id, name):
         user = self.new_user(id, name)
         await self.col.insert_one(user)
@@ -43,7 +45,17 @@ class Database:
     async def total_users_count(self):
         count = await self.col.count_documents({})
         return count
+        
+    async def total_userz_count(self):
+        count = await self.users.count_documents({"expiry_time": {"$gte": datetime.datetime.now()}})
+        return count
+
+    async def get_all_premium_users(self):
+        return self.users.find({"expiry_time": {"$gte": datetime.datetime.now()}})
+        
     
+
+        
     async def remove_ban(self, id):
         ban_status = dict(
             is_banned=False,
@@ -120,14 +132,61 @@ class Database:
             'template': IMDB_TEMPLATE,
             'shortlink': SHORTLINK_URL,
             'shortlink_api': SHORTLINK_API,
-            'is_shortlink': IS_SHORTLINK,
-            'tutorial': TUTORIAL,
-            'is_tutorial': IS_TUTORIAL
+            'is_shortlink': IS_SHORTLINK,            
+            'tutorial' : TUTORIAL,
+            'is_tutorial': IS_TUTORIAL         
         }
         chat = await self.grp.find_one({'id':int(id)})
         if chat:
             return chat.get('settings', default)
         return default
+
+    async def get_user(self, user_id):
+        user_data = await self.users.find_one({"id": user_id})
+        return user_data
+
+    async def update_user(self, user_data):
+        await self.users.update_one({"id": user_data["id"]}, {"$set": user_data}, upsert=True)
+
+    async def has_premium_access(self, user_id):
+        user_data = await self.get_user(user_id)
+        if user_data:
+            expiry_time = user_data.get("expiry_time")
+            if expiry_time is None:
+                # User previously used the free trial, but it has ended.
+                return False
+            elif isinstance(expiry_time, datetime.datetime) and datetime.datetime.now() <= expiry_time:
+                return True
+            else:
+                await self.users.update_one({"id": user_id}, {"$set": {"expiry_time": None}})
+        return False
+
+    async def get_free_trial_status(self, user_id):
+        user_data = await self.get_user(user_id)
+        if user_data:
+            return user_data.get("has_free_trial", False)
+        return False
+
+   # async def set_free_trial_status(self, user_id):
+   #     await self.users.update_one({"id": user_id}, {"$set": {"has_free_trial": True}})
+
+    async def check_remaining_uasge(self, userid):
+        user_id = userid
+        user_data = await self.get_user(user_id)        
+        expiry_time = user_data.get("expiry_time")
+        # Calculate remaining time
+        remaining_time = expiry_time - datetime.datetime.now()
+        return remaining_time
+            
+
+    async def give_free_trail(self, userid):
+     #   await set_free_trial_status(user_id)
+        user_id = userid
+        seconds = 5*60         
+        expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
+        user_data = {"id": user_id, "expiry_time": expiry_time, "has_free_trial": True}
+        await self.users.update_one({"id": user_id}, {"$set": user_data}, upsert=True)
+        
     
 
     async def disable_chat(self, chat, reason="No Reason"):
@@ -147,8 +206,15 @@ class Database:
         return self.grp.find({})
 
 
+
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
 
+    
+
+  
+    
+
+   
 
 db = Database(DATABASE_URI, DATABASE_NAME)
