@@ -41,6 +41,8 @@ reqst_channel = environ.get('REQST_CHANNEL_ID', '-1001568999811')
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
+VRFIED_IMG = environ.get("VRFIED_IMG", "https://graph.org/file/9cea98695ef1343e4f627.jpg")
+VRFY_IMG = environ.get("VRFY_IMG", "https://graph.org/file/10f9dac6eab3247e35831.jpg")
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://tmaadda:tmaadda@cluster0.8vqs89z.mongodb.net/?retryWrites=true&w=majority")
@@ -55,6 +57,8 @@ IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 
 # Others
 VERIFY = bool(environ.get('VERIFY', False))
+HOW_TO_VERIFY = environ.get('HOW_TO_VERIFY', 'https://t.me/how_to_use_tmafilesbot')
+SPRT_CHNL = environ.get('SPRT_CHNL', 'https://t.me/Tmaaddaa')
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'gyanilinks.com')
 SHORTLINK_API = environ.get('SHORTLINK_API', '928f016f7d48c35adb6673be0c4f45ff86c10d19')
 IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
