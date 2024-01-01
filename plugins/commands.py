@@ -1373,10 +1373,13 @@ async def premium_users(bot, message):
     # https://t.me/GetTGLink/4184
     jithu = await message.reply('Getting List Of Premium Users')
     users = await db.get_all_premium_users()
+    premusers = await db.total_userz_count()
     out = "Premium Users Saved In DB Are:\n\n"
+
+    out += f"Active Premium users: {premusers}\n\n"
     async for user in users:
         expiry_date = user['expiry_time'].strftime("%Y-%m-%d")
-        out += f"ID: {user['id']} Expire: {expiry_date}"
+        out += f"ID: <code>{user['id']}</code> Expire: {expiry_date}"
         out += '\n'
     try:
         await jithu.edit_text(out)
@@ -1392,7 +1395,7 @@ async def refer_cmd_handler(client, message):
     ]
     reply_markup = InlineKeyboardMarkup(btn)
     await message.reply_text(
-        text="**⚡️Refer option will add soon(Sankranthi 🤩🙂)**",
+        text="**⚡️Refer option will add soon(AftervSankranthi 🤩🙂)**",
         reply_markup=reply_markup
     )
     
