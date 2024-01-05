@@ -215,8 +215,12 @@ class Database:
         await self.col.update_one({'id': user_id}, {'$inc': {'referral_count': 1}})
 
     async def get_referral_count(self, user_id):
-        user = await self.col.find_one({'id': int(user_id)})
+    user = await self.col.find_one({'id': int(user_id)})
+    if user is not None:
         return user.get('referral_count', 0)
+    else:
+        return 0
+
 
 
     
