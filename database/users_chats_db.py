@@ -211,19 +211,23 @@ class Database:
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
 
+    # Your existing code ...
+    # ... Existing class methods ...
+
     async def increment_referral_count(self, user_id):
         await self.col.update_one({'id': user_id}, {'$inc': {'referral_count': 1}})
 
-# Existing code for Database class ...
+    async def get_referral_count(self, user_id):
+        user = await self.col.find_one({'id': int(user_id)})
+        if user is not None:
+            return user.get('referral_count', 0)
+        else:
+            return 0
 
-async def get_referral_count(self, user_id):
-    user = await self.col.find_one({'id': int(user_id)})
-    if user is not None:
-        return user.get('referral_count', 0)
-    else:
-        return 0
+# ... Rest of your code ...
 
-#db = Database(DATABASE_URI, DATABASE_NAME)
+db = Database(DATABASE_URI, DATABASE_NAME)
+
 
 
 
