@@ -1408,7 +1408,6 @@ async def refer_cmd_handler(client, message):
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from .db import db
 
 @Client.on_message(filters.command("refer"))
 async def refer_command_handler(client: Client, message: Message):
