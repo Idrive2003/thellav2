@@ -1433,7 +1433,12 @@ async def check_and_grant_premium(user_id):
 
         # Grant premium access (adjust the time duration as needed)
         await db.add_premium(user_id, '15days')
-        
+        def decode_referral_link(encoded_data):
+    try:
+        decoded_data = base64.urlsafe_b64decode(encoded_data + "=" * (-len(encoded_data) % 4)).decode("utf-8")
+        return decoded_data.split("_", 1)
+    except UnicodeDecodeError:
+        return None, None
     
     
         
