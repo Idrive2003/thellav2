@@ -1382,14 +1382,16 @@ async def premium_users(bot, message):
     out += f"Active Premium users: {premusers}\n\n"
     async for user in users:
         expiry_date = user['expiry_time'].strftime("%Y-%m-%d")
-        out += f"ID: <code>{user['id']}</code> Expire Date: {expiry_date}"
+        out += f"ID: <code>{user['id']}</code> Expire: {expiry_date}"
         out += '\n'
+
     try:
         await jithu.edit_text(out)
     except MessageTooLong:
-        with open('Premium users.txt', 'w+') as outfile:
+        with open('Premium_users.txt', 'w+', encoding='utf-8') as outfile:
             outfile.write(out)
         await message.reply_document('Premium_users.txt', caption="List Of Premium Users")
+
 
 @Client.on_message(filters.command("refer"))
 async def refer_cmd_handler(client, message):                
