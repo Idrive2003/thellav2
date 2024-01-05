@@ -218,24 +218,6 @@ class Database:
         user = await self.col.find_one({'id': int(user_id)})
         return user.get('referral_count', 0)
 
-async def add_premium(self, user_id, time):
-        referral_count = await self.get_referral_count(user_id)
-        
-        # Check if the user has referred enough members for free premium
-        if referral_count >= 5:
-            # Give free premium for 15 days
-            seconds = await get_seconds(f'15days')
-            
-            expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
-            user_data = {"id": user_id, "expiry_time": expiry_time}
-            await self.users.update_one({"id": user_id}, {"$set": user_data}, upsert=True)
-
-            # Reset referral count after giving premium
-            await self.col.update_one({'id': user_id}, {'$set': {'referral_count': 0}})
-            
-            return True  # Premium added successfully
-        else:
-            return False  # User hasn't referred enough members
 
     
    
