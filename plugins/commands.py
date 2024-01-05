@@ -1424,7 +1424,7 @@ async def refer_command_handler(client: Client, message: Message):
     referral_count = await db.get_referral_count(user_id)
 
     # Get the user's referral link
-    referral_link = f"https://t.me/YourBotUsername?start=ref_{user_id}"
+    referral_link = f"https://t.me/TmaFilesBot?start=ref_{user_id}"
 
     await message.reply_text(f"Your referral link: {referral_link}\nReferral count: {referral_count}")
 
