@@ -1393,8 +1393,8 @@ async def premium_users(bot, message):
         await message.reply_document('Premium_users.txt', caption="List Of Premium Users")
 
 
-@Client.on_message(filters.command("refer"))
-async def refer_cmd_handler(client, message):                
+@Client.on_message(filters.command("referr"))
+async def referr_cmd_handler(client, message):                
     btn = [            
         [InlineKeyboardButton("⚠️ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ⚠️", callback_data="close_data")]
     ]
