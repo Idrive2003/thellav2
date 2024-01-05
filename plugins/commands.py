@@ -1367,6 +1367,9 @@ async def myplan_cmd_handler(client, message):
 
 from pyrogram import filters
 
+# Import MessageTooLong
+from pyrogram.errors import MessageTooLong
+
 # Example command handler
 @Client.on_message(filters.command('premium_users') & filters.user(ADMINS))
 async def premium_users(bot, message):
@@ -1379,7 +1382,7 @@ async def premium_users(bot, message):
     out += f"Active Premium users: {premusers}\n\n"
     async for user in users:
         expiry_date = user['expiry_time'].strftime("%Y-%m-%d")
-        out += f"ID: <code>{user['id']}</code> Expire: {expiry_date}"
+        out += f"ID: <code>{user['id']}</code> Expire Date: {expiry_date}"
         out += '\n'
     try:
         await jithu.edit_text(out)
