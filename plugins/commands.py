@@ -1403,5 +1403,38 @@ async def refer_cmd_handler(client, message):
         text="**⚡️Refer option will add soon(AftervSankranthi 🤩🙂)**",
         reply_markup=reply_markup
     )
+
+# Modify the /refer command and add the following function in your utils.py file
+
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from .db import db
+
+@Client.on_message(filters.command("refer"))
+async def refer_command_handler(client: Client, message: Message):
+    user_id = message.from_user.id
+
+    # Get the user's referral count
+    referral_count = await db.get_referral_count(user_id)
+
+    # Get the user's referral link
+    referral_link = f"https://t.me/TmaFilesBot?start=ref_{user_id}"
+
+    await message.reply_text(f"Your referral link: {referral_link}\nReferral count: {referral_count}")
+
+# Add the following function in your utils.py file
+
+async def check_and_grant_premium(user_id):
+    referral_count = await db.get_referral_count(user_id)
+
+    # Check if the user has completed 5 referrals
+    if referral_count >= 5:
+        # Reset referral count
+        await db.col.update_one({'id': user_id}, {'$set': {'referral_count': 0}})
+
+        # Grant premium access (adjust the time duration as needed)
+        await db.add_premium(user_id, '15days')
+        
+    
     
         
