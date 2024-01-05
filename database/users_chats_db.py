@@ -210,6 +210,42 @@ class Database:
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
 
+    async def notify_expired_premium_users(self):
+        expired_users = await self.users.find({"expiry_time": {"$lt": datetime.datetime.now()}})
+        for user in expired_users:
+            user_id = user["id"]
+            await self.users.update_one({"id": user_id}, {"$set": {"expiry_time": None}})
+            await self.send_expired_notification(user_id)
+
+    async def send_expired_notification(self, user_id):
+        # Implement the logic to send a notification to the user about the expired premium plan
+        # You can use the Telegram API to send a message to the user
+        # Example: await client.send_message(chat_id=user_id, text="Your premium plan has expired. Renew it now with /plans.")
+        pass
+
+import asyncio
+
+async def notify_expired_premium_users_periodically():
+    while True:
+        await asyncio.sleep(24 * 3600)  # Check every 24 hours
+        await db.notify_expired_premium_users()
+
+# In your start method
+async def start(self):
+    # ... (existing code)
+    
+    # Start the bot
+    await super().start()
+
+    # Start the periodic task
+    asyncio.create_task(notify_expired_premium_users_periodically())
+
+async def send_expired_notification(self, user_id):
+    # Example: Notify the user about the expired premium plan
+    await self.send_message(chat_id=user_id, text="Your premium plan has expired. Renew it now with /plans.")
+    
+        
+
     
 
   
