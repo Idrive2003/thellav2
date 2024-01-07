@@ -4,7 +4,6 @@ import random
 import time
 import datetime
 import asyncio
-import binascii
 from Script import script
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChatAdminRequired, FloodWait
@@ -24,8 +23,6 @@ BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
-    
-    # Remaining code ...
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
@@ -477,7 +474,7 @@ async def start(client, message):
     user = message.from_user.id
     files_ = await get_file_details(file_id)           
     if not files_:
-      pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
+        pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
             if not await check_verification(client, message.from_user.id) and VERIFY == True and user not in PREMIUM_USER:
                 if not await db.has_premium_access(user):
@@ -1403,53 +1400,6 @@ async def referr_cmd_handler(client, message):
     ]
     reply_markup = InlineKeyboardMarkup(btn)
     await message.reply_text(
-        text="**⚡️Refer option will add soon(AftervSankranthi 🤩🙂)**",
+        text="**⚡️Refer option will add soon(After Sankranthi 🤩🙂)**",
         reply_markup=reply_markup
     )
-
-# Modify the /refer command and add the following function in your utils.py file
-
-from pyrogram import Client, filters
-from pyrogram.types import Message
-
-# Modify the /refer command in your utils.py file
-
-import base64
-
-from pyrogram import Client, filters
-from pyrogram.types import Message
-
-@Client.on_message(filters.command("refer"))
-async def refer_command_handler(client: Client, message: Message):
-    user_id = message.from_user.id
-
-    # Get the user's referral count
-    referral_count = await db.get_referral_count(user_id)
-
-    # Get the user's referral link
-    referral_link = f"https://t.me/TmaFilesBot?start=ref_{user_id}"
-
-    await message.reply_text(f"Your referral link: {referral_link}\nReferral count: {referral_count}")
-
-
-# Add the following function in your utils.py file
-
-async def check_and_grant_premium(user_id):
-    referral_count = await db.get_referral_count(user_id)
-
-    # Check if the user has completed 5 referrals
-    if referral_count >= 5:
-        # Reset referral count
-        await db.col.update_one({'id': user_id}, {'$set': {'referral_count': 0}})
-
-        # Grant premium access (adjust the time duration as needed)
-        await db.add_premium(user_id, '15days')
-        
-
-# Add the following function to handle the referral link in your utils.py file
-def decode_referral_link(encoded_data):
-    try:
-        decoded_data = base64.urlsafe_b64decode(encoded_data + "=" * (-len(encoded_data) % 4)).decode("utf-8")
-        return decoded_data.split("_", 1)
-    except (UnicodeDecodeError, binascii.Error):
-        return None, None
