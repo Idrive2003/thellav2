@@ -4,6 +4,7 @@ import random
 import time
 import datetime
 import asyncio
+import binascii
 from Script import script
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChatAdminRequired, FloodWait
@@ -1450,5 +1451,5 @@ def decode_referral_link(encoded_data):
     try:
         decoded_data = base64.urlsafe_b64decode(encoded_data + "=" * (-len(encoded_data) % 4)).decode("utf-8")
         return decoded_data.split("_", 1)
-    except UnicodeDecodeError:
+    except (UnicodeDecodeError, binascii.Error):
         return None, None
