@@ -462,9 +462,10 @@ async def start(client, message):
                                     InlineKeyboardButton('⁉️ Hᴏᴡ Tᴏ Dᴏᴡɴʟᴏᴀᴅ ⁉️', url=await get_tutorial(chat_id))
                                 ], [                             
                                     InlineKeyboardButton("✨ʙᴜʏ sᴜʙsᴄʀɪᴘᴛɪᴏɴ : ʀᴇᴍᴏᴠᴇ ᴀᴅs✨", callback_data="buy")
-                                ], [
-                                    InlineKeyboardButton("✨ɢᴇᴛ 5 ᴍɪɴᴜᴛᴇs ꜰʀᴇᴇ ᴛʀᴀɪʟ✨", callback_data="get_trail")
                                 ]
+                                #,[
+                                 #   InlineKeyboardButton("✨ɢᴇᴛ 5 ᴍɪɴᴜᴛᴇs ꜰʀᴇᴇ ᴛʀᴀɪʟ✨", callback_data="get_trail")
+                              #  ]
                             ]
                         )
                     )
@@ -496,9 +497,10 @@ async def start(client, message):
                             [
                                 InlineKeyboardButton("♻️ Vᴇʀɪғʏ ♻️", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=")),
                                 InlineKeyboardButton("⚠️ Hᴏᴡ Tᴏ Vᴇʀɪғʏ ⚠️", url=HOW_TO_VERIFY)
-                            ], [
-                                InlineKeyboardButton("✨ɢᴇᴛ 5 ᴍɪɴᴜᴛᴇs ꜰʀᴇᴇ ᴛʀᴀɪʟ✨", callback_data="get_trail")
                             ]
+                            #, [
+                              #  InlineKeyboardButton("✨ɢᴇᴛ 5 ᴍɪɴᴜᴛᴇs ꜰʀᴇᴇ ᴛʀᴀɪʟ✨", callback_data="get_trail")
+                           # ]
                         ]
 
                 # Display the final verification message (as a new message)
@@ -589,9 +591,11 @@ async def start(client, message):
                 btn = [[
                         InlineKeyboardButton("♻️ Vᴇʀɪғʏ ♻️", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=")),
                         InlineKeyboardButton("⚠️ Hᴏᴡ Tᴏ Vᴇʀɪғʏ ⚠️", url=HOW_TO_VERIFY)
-                    ],[
-                       InlineKeyboardButton("✨ɢᴇᴛ 5 ᴍɪɴᴜᴛᴇs ꜰʀᴇᴇ ᴛʀᴀɪʟ✨", callback_data="get_trail")  
-                    ]]
+                    ]
+                       #,[
+                      # InlineKeyboardButton("✨ɢᴇᴛ 5 ᴍɪɴᴜᴛᴇs ꜰʀᴇᴇ ᴛʀᴀɪʟ✨", callback_data="get_trail")  
+                   # ]
+                ]
                 
            
             await message.reply_photo(                
@@ -1382,7 +1386,7 @@ async def premium_users(bot, message):
     out += f"Active Premium users: {premusers}\n\n"
     async for user in users:
         expiry_date = user['expiry_time'].strftime("%Y-%m-%d")
-        out += f"ID: <code>{user['id']}</code> Expire: {expiry_date}"
+        out += f"ID:{user['id']} Expire: {expiry_date}"
         out += '\n'
 
     try:
