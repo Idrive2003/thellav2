@@ -1122,7 +1122,7 @@ async def deletemultiplefiles(bot, message):
         parse_mode=enums.ParseMode.HTML
     )
 
-@Client.on_message(filters.command("set_shortner")  & filters.user(ADMINS))
+@Client.on_message(filters.command("setlink")  & filters.user(ADMINS))
 async def shortlink(bot, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -1286,7 +1286,7 @@ async def stop_button(bot, message):
     await asyncio.sleep(3)
     await msg.edit("**✅️ 𝙱𝙾𝚃 𝙸𝚂 𝚁𝙴𝚂𝚃𝙰𝚁𝚃𝙴𝙳. 𝙽𝙾𝚆 𝚈𝙾𝚄 𝙲𝙰𝙽 𝚄𝚂𝙴 𝙼𝙴**")
     os.execl(sys.executable, sys.executable, *sys.argv)
-@Client.on_message(filters.command("add_premium") & filters.user(ADMINS))
+@Client.on_message(filters.command("paid") & filters.user(ADMINS))
 async def give_premium_cmd_handler(client, message):
     if len(message.command) == 3:
         user_id = int(message.command[1])  # Convert the user_id to integer
@@ -1299,14 +1299,14 @@ async def give_premium_cmd_handler(client, message):
             await message.reply_text("Premium access added to the user.")
             await client.send_message(
                 chat_id=user_id,
-                text=f"<b>ᴘʀᴇᴍɪᴜᴍ ᴀᴅᴅᴇᴅ ᴛᴏ ʏᴏᴜʀ ᴀᴄᴄᴏᴜɴᴛ ꜰᴏʀ {time} ᴇɴᴊᴏʏ 😀\n</b>",                
+                text=f"<b>ᴘʀᴇᴍɪᴜᴍ ᴀᴅᴅᴇᴅ ᴛᴏ ʏᴏᴜʀ ᴀᴄᴄᴏᴜɴᴛ ꜰᴏʀ {time} ᴇɴᴊᴏʏ 😀\n To check your plan validity use /myplans 🙂</b>",                
             )
         else:
             await message.reply_text("Invalid time format. Please use '1day for days', '1hour for hours', or '1min for minutes', or '1month for months' or '1year for year'")
     else:
         await message.reply_text("Usage: /add_premium user_id time (e.g., '1day for days', '1hour for hours', or '1min for minutes', or '1month for months' or '1year for year')")
         
-@Client.on_message(filters.command("remove_premium") & filters.user(ADMINS))
+@Client.on_message(filters.command("unpaid") & filters.user(ADMINS))
 async def remove_premium_cmd_handler(client, message):
     if len(message.command) == 2:
         user_id = int(message.command[1])  # Convert the user_id to integer
