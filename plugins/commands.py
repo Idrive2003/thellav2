@@ -1375,7 +1375,7 @@ from pyrogram import filters
 from pyrogram.errors import MessageTooLong
 
 # Example command handler
-@Client.on_message(filters.command('premium_users') & filters.user(ADMINS))
+@Client.on_message(filters.command('pusers') & filters.user(ADMINS))
 async def premium_users(bot, message):
     # https://t.me/GetTGLink/4184
     jithu = await message.reply('Getting List Of Premium Users')
