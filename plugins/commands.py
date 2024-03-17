@@ -683,7 +683,7 @@ async def log_file(bot, message):
     except Exception as e:
         await message.reply(str(e))
 
-@Client.on_message(filters.command('delete') & filters.user(ADMINS))
+@Client.on_message(filters.command('d') & filters.user(ADMINS))
 async def delete(bot, message):
     """Delete file from database"""
     reply = message.reply_to_message
