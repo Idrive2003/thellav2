@@ -1397,7 +1397,28 @@ async def premium_users(bot, message):
             outfile.write(out)
         await message.reply_document('Premium_users.txt', caption="List Of Premium Users")
 
+@Client.on_message(filters.command("check"))
+async def check_premium_validity_cmd_handler(client, message):
+    if len(message.command) == 2:
+        user_id = int(message.command[1])  # Get the user_id from the command
+        user_data = await db.get_user(user_id)  # Assuming you have a method to retrieve user data from the database
 
+        if user_data and "expiry_time" in user_data:
+            expiry_time = user_data["expiry_time"]
+            current_time = datetime.datetime.now()
+
+            if current_time < expiry_time:
+                remaining_time = expiry_time - current_time
+                remaining_days = remaining_time.days
+
+                await message.reply_text(f"The premium plan for user {user_id} is valid for {remaining_days} days.")
+            else:
+                await message.reply_text(f"The premium plan for user {user_id} has expired.")
+        else:
+            await message.reply_text(f"User {user_id} does not have an active premium plan.")
+    else:
+        await message.reply_text("Usage: /check user_id")
+        
 @Client.on_message(filters.command("referr"))
 async def referr_cmd_handler(client, message):                
     btn = [            
