@@ -1411,13 +1411,14 @@ async def check_premium_validity_cmd_handler(client, message):
                 remaining_time = expiry_time - current_time
                 remaining_days = remaining_time.days
 
-                await message.reply_text(f"The premium plan for user {user_id} is valid for {remaining_days} days.")
+                await message.reply_text(f"The premium plan for user {user_id} is valid for {remaining_days} days, until {expiry_time.strftime('%Y-%m-%d')}.")
             else:
-                await message.reply_text(f"The premium plan for user {user_id} has expired.")
+                await message.reply_text(f"The premium plan for user {user_id} has expired on {expiry_time.strftime('%Y-%m-%d')}.")
         else:
             await message.reply_text(f"User {user_id} does not have an active premium plan.")
     else:
-        await message.reply_text("Usage: /check user_id")
+        await message.reply_text("Usage: /check_premium_validity user_id")
+
         
 @Client.on_message(filters.command("referr"))
 async def referr_cmd_handler(client, message):                
