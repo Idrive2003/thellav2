@@ -1291,22 +1291,28 @@ async def stop_button(bot, message):
 async def give_premium_cmd_handler(client, message):
     if len(message.command) == 3:
         user_id = int(message.command[1])  # Convert the user_id to integer
-        time = message.command[2]
-        seconds = await get_seconds(time)
+        time_str = message.command[2]  # Renamed to avoid conflict with the time module
+        seconds = await get_seconds(time_str)
         if seconds > 0:
             expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
-            user_data = {"id": user_id, "expiry_time": expiry_time}  # Using "id" instead of "user_id"
-            await db.update_user(user_data)  # Use the update_user method to update or insert user data
-            await message.reply_text("Premium access added to the user.")
-            await client.send_message(
-                chat_id=user_id,
-                text=f"<b>Hi, ᴘʀᴇᴍɪᴜᴍ ᴀᴅᴅᴇᴅ ᴛᴏ ʏᴏᴜʀ ᴀᴄᴄᴏᴜɴᴛ ꜰᴏʀ {time} ᴇɴᴊᴏʏ 😀\n To check your plan validity use /myplan 🙂</b>",                
-            )
+            user_data = {"user_id": user_id, "expiry_time": expiry_time}  # Changed key to "user_id"
+            try:
+                await db.update_user(user_data)  # Use the update_user method to update or insert user data
+                username = await db.get_username(user_id)  # Assuming you have a method to get the username
+                notification_message = f"<b>Hi {username}, premium added to your account for {time_str} 🎉\n To check your plan validity use /myplan 🙂</b>"
+                await message.reply_text("Premium access added to the user.")
+                await client.send_message(
+                    chat_id=user_id,
+                    text=notification_message,
+                )
+            except Exception as e:
+                await message.reply_text(f"An error occurred while updating the database: {str(e)}")
         else:
-            await message.reply_text("Invalid time format. Please use '1day for days', '1hour for hours', or '1min for minutes', or '1month for months' or '1year for year'")
+            await message.reply_text("Invalid time format. Please use '1day for days', '1hour for hours', '1min for minutes', '1month for months', or '1year for year'")
     else:
-        await message.reply_text("Usage: /add_premium user_id time (e.g., '1day for days', '1hour for hours', or '1min for minutes', or '1month for months' or '1year for year')")
-        
+        await message.reply_text("Usage: /add_premium user_id time (e.g., '1day for days', '1hour for hours', '1min for minutes', '1month for months', or '1year for year')")
+
+   
 @Client.on_message(filters.command("unpaid") & filters.user(ADMINS))
 async def remove_premium_cmd_handler(client, message):
     if len(message.command) == 2:
