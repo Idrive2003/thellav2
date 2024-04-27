@@ -1295,7 +1295,7 @@ async def give_premium_cmd_handler(client, message):
         seconds = await get_seconds(time_str)
         if seconds > 0:
             expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
-            user_data = {"user_id": user_id, "expiry_time": expiry_time}  # Changed key to "user_id"
+            user_data = {"id": user_id, "expiry_time": expiry_time}  # Changed key to "id"
             try:
                 await db.update_user(user_data)  # Use the update_user method to update or insert user data
                 username = await db.get_username(user_id)  # Assuming you have a method to get the username
@@ -1311,6 +1311,7 @@ async def give_premium_cmd_handler(client, message):
             await message.reply_text("Invalid time format. Please use '1day for days', '1hour for hours', '1min for minutes', '1month for months', or '1year for year'")
     else:
         await message.reply_text("Usage: /add_premium user_id time (e.g., '1day for days', '1hour for hours', '1min for minutes', '1month for months', or '1year for year')")
+
 
    
 @Client.on_message(filters.command("unpaid") & filters.user(ADMINS))
