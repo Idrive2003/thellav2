@@ -219,7 +219,7 @@ Iғ Bᴏᴛ ᴏʀ Gʀᴏᴜᴘ Gᴏᴛ Bᴀɴ Fʀᴏᴍ Cᴏᴘʏʀɪɢʜᴛs T�
 
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
-    CAPTION = """<b>📂Fɪʟᴇɴᴀᴍᴇ : {file_name}
+    CAPTION = """<blockquote><b>📂Fɪʟᴇɴᴀᴍᴇ : {file_name}</blockquote>
 ╔════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╗
 ▫️<a href=https://t.me/tma_adda> ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ </a>
 ▫️<a href=https://t.me/+p0-BC35VUHJiMzU1> ʀᴇǫᴜᴇsᴛ ᴍᴏᴠɪᴇs​ </a>
