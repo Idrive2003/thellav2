@@ -1,6 +1,6 @@
 class script(object):
     START_TXT = """<b>Hᴇʟʟᴏ {},
-Mʏ Nᴀᴍᴇ Is <a href=https://t.me/{}>{}</a>,ɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇꜱ ᴀɴᴅ ꜱᴇʀɪᴇꜱ 😁. ʏᴏᴜ ᴡɪʟʟ ɢᴇᴛ ꜰɪʟᴇꜱ ꜰᴏʀ ꜰʀᴇᴇ ᴡɪᴛʜ ᴀᴅꜱ. ᴛᴏ ɢᴇᴛ ꜰɪʟᴇꜱ ᴡɪᴛʜᴏᴜᴛ ᴀᴅꜱ ʙᴜʏ ᴏᴜʀ ᴘʀᴇᴍɪᴜᴍ ꜰᴏʀ 20ʀꜱ/ᴍᴏɴᴛʜ ᴏɴʟʏ,Jᴜsᴛ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ As Aᴅᴍɪɴ Aɴᴅ Eɴᴊᴏʏ 😍</b>"""
+Mʏ Nᴀᴍᴇ Is <a href=https://t.me/{}>{}</a>,ɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇꜱ ᴀɴᴅ ꜱᴇʀɪᴇꜱ 😁. ʏᴏᴜ ᴡɪʟʟ ɢᴇᴛ ꜰɪʟᴇꜱ ꜰᴏʀ ꜰʀᴇᴇ ᴡɪᴛʜ ᴀᴅꜱ. ᴛᴏ ɢᴇᴛ ꜰɪʟᴇꜱ ᴡɪᴛʜᴏᴜᴛ ᴀᴅꜱ ʙᴜʏ ᴏᴜʀ ᴘʀᴇᴍɪᴜᴍ ꜰᴏʀ 30ʀꜱ/ᴍᴏɴᴛʜ ᴏɴʟʏ,Jᴜsᴛ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ As Aᴅᴍɪɴ Aɴᴅ Eɴᴊᴏʏ 😍</b>"""
 
     HELP_TXT = """<b>Hᴇʏ {}
 Hᴇʀᴇ Is Tʜᴇ Mʏ Cᴏᴍᴍᴀɴᴅs Fᴏʀ Hᴇʟᴘ.</b>"""
@@ -219,10 +219,11 @@ Iғ Bᴏᴛ ᴏʀ Gʀᴏᴜᴘ Gᴏᴛ Bᴀɴ Fʀᴏᴍ Cᴏᴘʏʀɪɢʜᴛs T�
 
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
-    CAPTION = """<blockquote><b>📂Fɪʟᴇɴᴀᴍᴇ : {file_name}</blockquote>
+    CAPTION = """<b>📂Fɪʟᴇɴᴀᴍᴇ : {file_name}
 ╔════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╗
-▫️<a href=https://t.me/tma_adda> ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ </a>
-▫️<a href=https://t.me/+p0-BC35VUHJiMzU1> ʀᴇǫᴜᴇsᴛ ᴍᴏᴠɪᴇs​ </a>
+▫️<a href=https://t.me/+nMvXvoVF-wUwYzE1> ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ </a> 
+▫️<a href=https://t.me/+bVutrriBWlRhNWM1> ʀᴇǫᴜᴇsᴛ ᴍᴏᴠɪᴇs​ </a>
+▫️<a href=https://t.me/nenmemeravthaa> UPDATES​ </a>
 ╚════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╝</b>""" 
 
     FORCE_SUB = """
