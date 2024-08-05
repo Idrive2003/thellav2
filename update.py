@@ -4,7 +4,7 @@ from os import path as ospath, environ
 from subprocess import run as srun
 from requests import get as rget
 
-UPSTREAM_REPO = "https://jith2252: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@github.com/Jith2252/tmafilesbotv3"#environ.get('UPSTREAM_REPO')
+UPSTREAM_REPO = "https://jith2252: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@github.com/Jith2252/thellav2"#environ.get('UPSTREAM_REPO')
 UPSTREAM_BRANCH = "main" 
 try:
     if len(UPSTREAM_REPO) == 0:
