@@ -57,6 +57,7 @@ IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 
 # Others
 VERIFY = bool(environ.get('VERIFY', False))
+SPRT_CHNL = environ.get('SPRT_CHNL', 'https://t.me/nenmemeravthaa')
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'gyanilinks.com')
 SHORTLINK_API = environ.get('SHORTLINK_API', '6aa57b9cf2e0491b7c8509e11f0acf57bcb16844')
 IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
