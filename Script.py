@@ -1,13 +1,13 @@
 class script(object):
     START_TXT = """<b>Hᴇʟʟᴏ {},
-Mʏ Nᴀᴍᴇ Is <a href=https://t.me/{}>{}</a>,ɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇꜱ ᴀɴᴅ ꜱᴇʀɪᴇꜱ 😁. ʏᴏᴜ ᴡɪʟʟ ɢᴇᴛ ꜰɪʟᴇꜱ ꜰᴏʀ ꜰʀᴇᴇ ᴡɪᴛʜ ᴀᴅꜱ. ᴛᴏ ɢᴇᴛ ꜰɪʟᴇꜱ ᴡɪᴛʜᴏᴜᴛ ᴀᴅꜱ ʙᴜʏ ᴏᴜʀ ᴘʀᴇᴍɪᴜᴍ ꜰᴏʀ 30ʀꜱ/ᴍᴏɴᴛʜ ᴏɴʟʏ,Jᴜsᴛ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ As Aᴅᴍɪɴ Aɴᴅ Eɴᴊᴏʏ 😍</b>"""
+Mʏ Nᴀᴍᴇ Is <a href=https://t.me/{}>{}</a>,ɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇꜱ ᴀɴᴅ ꜱᴇʀɪᴇꜱ 😁. ʏᴏᴜ ᴡɪʟʟ ɢᴇᴛ ꜰɪʟᴇꜱ ꜰᴏʀ ꜰʀᴇᴇ ᴡɪᴛʜ ᴀᴅꜱ. ᴛᴏ ɢᴇᴛ ꜰɪʟᴇꜱ ᴡɪᴛʜᴏᴜᴛ ᴀᴅꜱ ʙᴜʏ ᴏᴜʀ ᴘʀᴇᴍɪᴜᴍ ꜰᴏʀ 25ʀꜱ/ᴍᴏɴᴛʜ ᴏɴʟʏ,Jᴜsᴛ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ As Aᴅᴍɪɴ Aɴᴅ Eɴᴊᴏʏ 😍</b>"""
 
     HELP_TXT = """<b>Hᴇʏ {}
 Hᴇʀᴇ Is Tʜᴇ Mʏ Cᴏᴍᴍᴀɴᴅs Fᴏʀ Hᴇʟᴘ.</b>"""
 
     ABOUT_TXT = """"<b>✯ Mʏ Nᴀᴍᴇ : {}</b>
-<b>✯ Cʀᴇᴀᴛᴏʀ : <a href=https://t.me/Tma_SupportBot>☢ Owner Of Tmaadda ☢</a></b>
-<b>✯ Uᴘᴅᴀᴛᴇs : <a href=https://t.me/Tma_adda>TmaAdda👾</a></b>
+<b>✯ Cʀᴇᴀᴛᴏʀ : <a href=https://t.me/Nenmemeravtha_bot>☢ Owner Of NMA ☢</a></b>
+<b>✯ Uᴘᴅᴀᴛᴇs : <a href=https://t.me/nenmemeravthaa>nenmemeravthaa👾</a></b>
 <b>✯ Bᴜɪʟᴅ Sᴛᴀᴛᴜs : ᴠ4.0.0 [Sᴛᴀʙʟᴇ]</b>"""
 
 
