@@ -594,8 +594,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]
         reply_markup = InlineKeyboardMarkup(btn)
         await query.message.reply_photo(
-            photo="https://graph.org/file/ae5abe210d4639b459140.jpg",
-            caption="**⚡️Buy Premium Now\n\n ╭━━━━━━━━╮\n    Premium Plans\n  • ₹20 - 1 Month \n  • ₹35 - 2 Months\n  • ₹50 - 3 Months\n  • ₹100 - 6 Months\n  • ₹200 - 1 Year\n╰━━━━━━━━╯\n\nPremium Features ♤ᵀ&ᶜ\n\n☆ New/Old Movies and Series\n☆ High Quality available\n☆ Get Files Directly \n☆ High speed Download links\n☆ Full Admin support \n☆ Request will be completed in 1 hour if available.\n\nᴜᴘɪ ɪᴅ ➢ <code>Tma@freecharge</code>\n\n⚠️Send SS After Payment⚠️\n\n~ After sending a Screenshot please give us some time to add you in the premium version.**",
+            photo="https://graph.org/file/c14513e92f6101b789cf9.jpg",
+            caption="**⚡️Buy Premium Now\n\n ╭━━━━━━━━╮\n    Premium Plans\n  • ₹25 - 1 month (Trial)\n  • ₹55 - 2 months \n  • ₹75 - 3 Months\n  • ₹149 - 6 Months\n  • ₹200 - 1 Year\n╰━━━━━━━━╯\n\nPremium Features ♤ᵀ&ᶜ\n\n☆ New/Old Movies and Series\n☆ High Quality available\n☆ Get Files Directly \n☆ High speed Download links\n☆ Full Admin support \n☆ Request will be completed in 1 hour if available.\n\nᴜᴘɪ ɪᴅ ➢ <code>nenmemeravtha@ybl</code>\n\n⚠️Send SS After Payment⚠️\n\n~ After sending a Screenshot please give us some time to add you in the premium version.**",
             reply_markup=reply_markup
         )
         return 
