@@ -282,7 +282,7 @@ async def start(client, message):
         chat_id = temp.SHORT.get(user)
         files_ = await get_file_details(file_id)
         files = files_[0]
-        title = '@Tmaaddaa '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
+        title = '@nenmemeravthaa '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
         size=get_size(files.file_size)
         f_caption=files.caption
         if CUSTOM_FILE_CAPTION:            
@@ -545,7 +545,7 @@ async def start(client, message):
             )
             filetype = msg.media
             file = getattr(msg, filetype.value)
-            title = '@Tmaaddaa ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
+            title = '@nenmemeravthaa ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
@@ -566,7 +566,7 @@ async def start(client, message):
             pass
         return await message.reply('No such file exist.')
     files = files_[0]
-    title = '@Tmaaddaa ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
+    title = '@nenmemeravthaa ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
     size=get_size(files.file_size)
     f_caption=files.caption
     if CUSTOM_FILE_CAPTION:
@@ -576,7 +576,7 @@ async def start(client, message):
             logger.exception(e)
             f_caption=f_caption
     if f_caption is None:
-        f_caption = f"@Tmaaddaa {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))}"
+        f_caption = f"@nenmemeravthaa {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))}"
     if not await check_verification(client, message.from_user.id) and VERIFY == True and user not in PREMIUM_USER:
         if not await db.has_premium_access(user):
             has_free_trial = await db.get_free_trial_status(user)
