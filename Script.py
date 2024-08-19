@@ -271,10 +271,10 @@ Aᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:
 
     OWNER_INFO = """
 <b>┏━•❃𓊈𒆜Oᴡɴᴇʀ Dᴇᴛᴀɪʟꜱ𒆜𓊉❃•━┓   
- ◈ ᴛɢ ɴᴀᴍᴇ : ⚝TMA⚝
- ◈ ɴɪᴄᴋɴᴀᴍᴇ : Manchi Manishi🕷 
- ◈ ᴜꜱᴇʀɴᴀᴍᴇ : @Tma_SupportBot
- ◈ ᴘᴇʀᴍᴀɴᴇɴᴛ ᴅᴍ ʟɪɴᴋ : <a href='t.me/TmaSupportBot'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b>
+ ◈ ᴛɢ ɴᴀᴍᴇ : ⚝NMA⚝
+ ◈ ɴɪᴄᴋɴᴀᴍᴇ :  Thella Deyyam🕷 
+ ◈ ᴜꜱᴇʀɴᴀᴍᴇ : @Nenmemeravtha_bot
+ ◈ ᴘᴇʀᴍᴀɴᴇɴᴛ ᴅᴍ ʟɪɴᴋ : <a href='t.me/Nenmemeravtha_bot'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b>
 ‿︵‿︵‿︵‿୨❤୧‿︵‿︵‿︵‿"""
 
     DISL_TXT = """
